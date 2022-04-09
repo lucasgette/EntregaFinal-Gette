@@ -1,0 +1,97 @@
+.contenedor-buscador {
+
+    
+
+    width: 90%;
+    margin: 20px auto;
+    background-color: rgba(31, 31, 31, 0.95);
+    color: #FFF;
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+.contenedor-buscador h3 {
+    font-size: 2em;
+    text-align: center;
+}
+
+/* background-color: rgba(31, 31, 31, 0.95);
+color: #FFF;
+padding: 20px; */
+
+.buscador-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    margin-top: 50px;
+}
+
+
+.perfil-link {
+    text-decoration: none;
+    color: #565fe1;
+}
+
+.perfil-link:hover {
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+
+
+.boton {
+    font-size: 0.8em;
+}
+
+input {
+    max-width: 400px;
+    font-size: 1.1rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 15px auto;
+    
+    border: none;
+    border-radius: 3px;
+    transition: all 0.5s;
+  
+}
+
+input:focus {
+    transition: all 0.5s;
+    transform: scale(1.05);
+    border: none;
+    background-color: #161a1b;
+    color: #FFF;    
+    
+}
+.botones {
+    display: flex;
+    justify-content: center;    
+}
+
+.boton {
+
+    margin: 0 10px;
+
+}
+
+.resultado {
+    text-align: center;
+}
+
+.resultados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultados .boton {
+    max-width: 350px;
+    margin: auto;
+}
+

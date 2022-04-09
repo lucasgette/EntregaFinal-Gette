@@ -1,0 +1,9 @@
+{% extends "inicio.html" %}
+
+{% block logout %}
+
+<p>Te has deslogeado correctamente</p>
+<p><a href={% url 'inicio' %}>Volver a inicio</a> - <a href={% url 'login' %}>Iniciar sesión</a></p>
+
+
+{% endblock logout %}

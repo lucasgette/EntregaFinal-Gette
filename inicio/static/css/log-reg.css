@@ -1,0 +1,132 @@
+html {
+    background: linear-gradient(110deg, #404be2 60%, #2b2b2b 40%);
+    height: 100%;
+}
+
+/* LOGIN-REGISTRO FORMULARIO */
+
+.log-reg-card {
+    background-color: #161a1b;;
+    color: rgb(240, 240, 240);
+    font-family: 'Varela Round';
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 25px;
+    align-items: center;
+    box-shadow: 2px 2px 2px #29292963;
+    border: 1px solid #222;
+    transition: all 0.5s;
+}
+
+.log-reg-card:hover {
+    transition: all 0.5s;
+    box-shadow: 10px 10px 4px #29292963;
+    transform: scale(1.015);
+    border-radius: 3px;
+}
+
+.log-reg-titulo { 
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+
+.log-reg-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transition: all 0.5s;
+
+}
+
+.log-reg-form table {
+
+    width: 100%;
+
+}
+.log-reg-form table tbody {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.log-reg-form table tbody tr {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.log-reg-form table tbody tr td {
+    width: 100%;
+    display: block;
+    margin: auto;
+  
+}
+.log-reg-form table tbody tr td input {
+    width: 70%;
+    font-size: 1.1rem;
+    display: block;
+    padding: 10px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 3px;
+    transition: all 0.5s;
+  
+}
+
+.log-reg-form table tbody tr td input:focus {
+    transition: all 0.5s;
+    transform: scale(1.05);
+    border: none;
+    background-color: #161a1b;
+    color: #FFF;    
+}
+
+.log-reg-btn {
+    padding: 10px 30px;
+    font-family: 'Varela Round';
+    background-color: #404be2;
+    color: #FFF;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #404be2;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.log-reg-btn:hover {
+    transition: all 0.2s;
+    transform: scale(1.1);
+    background-color: #161a1b;
+}
+
+.registrar-msje {
+    margin: 40px 0 20px 0;
+}
+
+.registrar-msje a {
+    text-decoration: none;
+    color: #6770f1;
+
+}
+
+.registrar-msje a:hover{
+    color: #bdc1ff;
+}
+
+
+/* html {
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 40%);
+    height: 100%;
+} */
+
+

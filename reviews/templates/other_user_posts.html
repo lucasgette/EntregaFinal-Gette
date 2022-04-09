@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{request.user}} Reviews</title>
+</head>
+<body>
+    <h2>Reviews de {{usuario}}</h2>
+
+    {% for post in posts %}
+
+            <p>{{post.title}} - {{post.calificacion}}/10 - Author: {{post.author}} - PK: {{post.pk}}- <a href={% url 'other_users_post_detail' author=post.author pk=post.pk %}>Ver detalles</a></p>
+
+    {% endfor %}
+    <br>
+    <a href={% url 'inicio' %}> Volver</a>
+
+</body>
+</html>

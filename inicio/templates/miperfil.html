@@ -1,0 +1,91 @@
+{% extends "inicio.html" %}
+
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\perfil.css" %}>
+{% endblock estilos %}
+
+
+
+
+{% block perfil %}
+<div class='perfil-grilla'>
+    <div class='main-contenedor'>
+        
+        <h3 class='titulo-perfil'>{{request.user.username}}</h3>
+        <div class='tarjeta-perfil'>
+
+            <div class='contenedor-avatar'>
+                <img class='perfil-avatar' src="{{avatar.url}}" alt="Foto de perfil">    
+            </div>
+
+            <div class='contenedor-datos'>
+                
+                <p>Usuario: {{request.user.username}}</p>
+                {% if request.user.first_name %}
+                <p>Nombre: {{request.user.first_name}}</p>
+                {% else %}
+                    <p>Nombre: Sin datos...</p>
+                {% endif %}
+
+                {% if request.user.last_name %}
+                <p>Apellido: {{request.user.last_name}}</p>
+                {% else %}
+                <p>Apellido: Sin datos...</p>
+                {% endif %}
+            
+                <p>Email: {{request.user.email}}</p>
+            </div>
+            
+        </div>
+                <div class='botones-perfil'>
+            <br>
+            {% if request.user.username == usuario.username %}
+                <a class='boton' href={% url 'editar_perfil' %}> Editar perfil</a>
+
+            {% else %}
+            
+            {% endif %}
+        
+            <a class='boton' href={% url 'reviews' %}>Ver reviews</a>  
+            <a class='boton' href={% url 'crear_post' %}>Crear post</a>
+        </div>
+        <hr>
+
+     
+
+
+        
+
+        <div class='post-section'>
+            <h2>Reviews de {{usuario}}</h2>
+
+        {% if posts %}
+            {% for post in posts %}
+
+                <p class='post-item'>
+                <span class='post-titulo'>{{post.title}} </span>
+                <span class='post-calificacion'>- Calificación: {{post.calificacion}}/10 - {{post.fecha}}</span>  
+                <a class='post-detalles' href={% url 'other_users_post_detail' author=post.author pk=post.pk %}>Ver detalles</a></p>
+
+            {% endfor %}
+        
+        {% else %}
+            <p>El usuario no ha realizado ninguna review por el momento...</p>
+        {% endif %}
+
+
+        </div>
+    </div>
+
+
+
+  
+</div>
+
+
+{% endblock perfil %}
+
+
+{% comment %} NO SE VE LA IMAGEN. ARREGLAR {% endcomment %}

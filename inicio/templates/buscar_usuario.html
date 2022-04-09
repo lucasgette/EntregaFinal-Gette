@@ -1,0 +1,61 @@
+{% extends "inicio.html" %}
+
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\buscador.css" %}>
+{% endblock estilos %}
+
+
+
+{% block perfil %}
+<div class='contenedor-buscador'>
+    <h3>Buscador de usuarios</h3>
+  
+    
+    
+    <form class='buscador-form' action="" method='post'>
+    {% csrf_token %}
+
+    {{buscador_form}}
+    <div class='botones'>
+        <button class='boton' type='submit'>Buscar</button>
+        <a class='boton' href={% url 'buscar_usuario'%}>Borrar Busqueda</a>
+        <button class='boton' type='reset'>Limpiar</button>
+    </div>
+
+    </form>
+    <br>
+
+    <div class="resultados">
+        {% if busqueda %}
+            {% if coincidencias %}
+            <p>Resultados obtenidos</p>
+            <ul class='lista-resultados'>
+            {% for usuario in coincidencias %}
+                {% if usuario.username == request.user.username %}
+                    <li>{{usuario.username}} (Tú) - <a class='perfil-link' href={% url 'perfil' usuario.username%}>Ver perfil</a></li>
+                {% else %}
+                    <li>{{usuario.username}} - <a class='perfil-link' href={% url 'perfil' usuario.username%}>Ver perfil</a></li>
+                {% endif %}
+                
+            {% endfor %}
+            </ul>
+
+            {% else %}
+                <p class='resultado'>La busqueda no tiene coincidencias...</p>
+            {% endif %}
+
+        {% else %}
+            <p class='resultado'>Aun no se ha realizado una búsqueda</p>
+        {% endif %}
+
+        <br>
+        <br>
+        <a class='boton' href={% url 'inicio' %}>Volver a inicio</a>
+    </div>
+</div>
+{% endblock perfil %}
+
+
+{% comment %} NO SE VE LA IMAGEN. ARREGLAR {% endcomment %}

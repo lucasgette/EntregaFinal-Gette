@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css\style.css" %}>
+    {% block estilos %}
+    
+    {% endblock estilos %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@300;400;500;600&family=Oswald:wght@300;400;500&family=Varela+Round&display=swap" rel="stylesheet">
+    {% block titulo %}
+    <title>Inicio</title>
+    {% endblock titulo %}   
+    
+
+</head>
+
+
+<body>
+
+
+<nav class='nav-bar'>
+    {% if user.is_authenticated %}
+    
+    <div class='nav-division'>
+        <div class='logo-container'>
+            <img class= 'nav-logo' src={% static 'imagenes\logo-1.png' %} alt="Logo">
+        </div>
+        <div class='nav-division-2'>
+            <span class= 'nav-item' ><a href={% url 'inicio' %}>Inicio</a></span>
+            <span class= 'nav-item' ><a href={% url 'buscar_usuario' %}>Buscar usuarios</a></span>
+            <span class= 'nav-item' ><a href={% url 'reviews' %}>Mis reviews</a> </span>
+            <span class= 'nav-item' ><a href={% url 'crear_post' %}>Crear review</a> </span>
+            
+        </div>
+    </div>
+
+    <div class='nav-division'>
+        <span class= 'nav-item nav-message' ><p> Actualmente estas logeado/a como <b> {{request.user.username}}</b></p></span>
+        <img class='nav-profile-pic' src="{{request.user.perfilusuario.imagen.url}}" alt="">
+        <span class= 'nav-item' ><a href={% url 'miperfil' %}>Perfil</a></span>
+        <span class= 'nav-item' ><a href={% url 'logout' %}>Logout</a></span>
+    </div>
+    {% else %}
+    <div class='nav-division'>
+        <img class='nav-logo' src={% static 'imagenes\logo-1.png' %} alt="Logo">
+    </div class='nav-division'>
+
+    <div class='nav-division'>
+        <span class= 'nav-item nav-message' >No has iniciado sesion </span>
+        <span class= 'nav-item' ><a href={% url 'login' %}>Login</a></span>
+        <span class= 'nav-item' ><a href={% url 'registrarse' %}>Registrate</a><span>
+    <div class='nav-division'>
+    {% endif %}
+</nav>
+{% block loginmain %}
+{% block logout %}
+{% block perfil %}
+{% block nuevo_post %}
+
+
+    <div class='contenedor'>
+    <h1 class='titulo-inicio'>Bienvenidos!</h1>
+    <p>Versión en desarrollo de mi sitio web.</p>
+
+
+    {% comment %} Si está logeado en la página, le da la opción de deslogearse {% endcomment %}
+
+    {% if user.is_authenticated %}
+    <p>Actualmente estas logeado/a como <b>{{user.username}}</b></p>
+    <p><a href={% url 'logout' %}>Logout</a> - <a href={% url 'miperfil' %}>Perfil</a> </p>
+    <p><a href={% url 'reviews' %}>Reviews</a> </p>
+
+    {% comment %} Si no está logeado en la página, le da la opción de iniciar sesión {% endcomment %}
+    {% else %}
+        {% if registro_exitoso %}
+            <p>{{registro_exitoso}}</p>
+            <p><a href={% url 'login' %}>LOGIN</a></p>
+        {% else %}
+            <p>No has iniciado sesion</p>
+            <p><a href={% url 'login' %}>LOGIN</a> - <a href={% url 'registrarse' %}>REGISTRATE</a></p>
+        {% endif %}
+
+    {% endif %}
+
+    </div>
+
+{% endblock nuevo_post %}
+{% endblock perfil %}
+{% endblock logout %}
+{% endblock loginmain %}
+</body>
+{% comment %} <footer>
+    <p class='texto-footer'>Todos los derechos reservados</p>
+</footer> {% endcomment %}
+
+</html>

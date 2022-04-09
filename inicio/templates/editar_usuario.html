@@ -1,0 +1,26 @@
+{% extends "inicio.html" %}
+
+{% block loginmain %}
+<div class='contenedor-edicion'>
+    <h1>Editar perfil</h1>
+    <div class='form-edicion'>
+        <form action="" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{u_form.as_p}}
+                
+                {{p_form.as_p}}
+                
+            </table>
+            <div class='contenedor-img'>
+                <a href="{{request.user.perfilusuario.imagen.url}}" target=_blank><img class='imagen-edicion' src="{{request.user.perfilusuario.imagen.url}}" alt="Foto perfil"></a>
+            </div>
+            <div class='botones'>
+                <button class='boton' type="submit">Guardar cambios</button>
+                <button class='boton' type="reset">Reset</button>
+            </div>
+        </form>
+</div>
+
+
+{% endblock loginmain %}

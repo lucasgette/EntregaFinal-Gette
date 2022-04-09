@@ -1,0 +1,109 @@
+html {
+    background: linear-gradient(130deg, #404be2 60%, #2b2b2b 40%);
+
+    height: 100%;
+
+    /* font-family: 'Anybody', cursive; */
+    /* font-family: 'Oswald', sans-serif; */
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    height: 100%;
+}
+
+
+/* Estilos grilla */
+
+.perfil-grilla {
+    display: flex;
+    height: calc(100% - 100px);
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 20px auto;
+
+}
+
+
+/* Estilos de main */
+
+.main-contenedor {
+    background-color: rgba(31, 31, 31, 0.95);
+    color: #FFF;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+.tarjeta-perfil {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 25px;
+    
+}
+
+
+.titulo-perfil {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+
+.perfil-avatar {
+    width: 200px;
+    border-radius: 50%;
+    border: 3px solid #404be2a2;
+    margin: 20px 50px;
+    
+
+}
+
+/* Botones edicion */
+.botones-perfil {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+/* Sección Posts */
+
+.post-section {
+    margin: 20px;
+}
+
+.post-item{
+    margin: 5px 0;
+}
+
+.post-detalles {
+    text-decoration: none;
+    color: #565fe1;
+}
+
+.post-detalles:hover {
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.post-titulo {
+    font-weight: bold;
+    color: #EEE
+}
+
+
+.post-calificacion {
+    color: #aaa;
+}
+
+/* 
+font-family: 'Anybody', cursive;
+font-family: 'Oswald', sans-serif;
+font-family: 'Varela Round', sans-serif; */
+
+/* Color negro tapa am ---->  #161a1b; */

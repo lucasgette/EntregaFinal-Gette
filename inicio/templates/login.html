@@ -1,0 +1,30 @@
+{% extends "inicio.html" %}
+
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\log-reg.css" %}>
+{% endblock estilos %}
+
+
+{% block loginmain %}
+
+<div class='log-reg-card'>
+
+
+<h3 class='log-reg-titulo'>Login</h3>
+<form class='log-reg-form' action="" method='post'>
+    {% csrf_token %}
+    <table class='log-reg-form-table'>
+        {{login_form.as_table}}
+        
+    </table>
+    <button class='log-reg-btn' type="submit">Iniciar sesion</button>
+</form>
+
+
+<p class='registrar-msje'>Si aún no tienes cuenta, puedes registrarte clickeando <a href={% url 'registrarse' %}>Aquí</a></p>
+
+</div>
+
+{% endblock loginmain %}
