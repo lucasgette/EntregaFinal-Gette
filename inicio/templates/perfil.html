@@ -51,7 +51,7 @@
 
                 <p class='post-item'>
                 <span class='post-titulo'>{{post.title}} </span>
-                <span class='post-calificacion'>- Calificación: {{post.calificacion}}/10 - </span>  
+                <span class='post-calificacion'>- Calificación: {{post.calificacion}}/10  </span>  
                 <a class='post-detalles' href={% url 'other_users_post_detail' author=post.author pk=post.pk %}>Ver detalles</a></p>
 
             {% endfor %}

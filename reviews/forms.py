@@ -11,3 +11,5 @@ class CrearPost(forms.ModelForm):
         model = Post
         fields = ['title','body','calificacion']
         help_texts = {k:'' for k in fields }
+
+

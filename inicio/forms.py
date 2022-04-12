@@ -40,3 +40,10 @@ class BuscarUsuario(forms.Form):
     usuario = forms.CharField(max_length=60, label='Nombre de usuario')
 
 
+class BuscarReviews(forms.Form):
+    review = forms.CharField(max_length=60, label='Titulo del post')
+
+
+
+class Confirm(forms.Form):
+    confirmation = forms.BooleanField()

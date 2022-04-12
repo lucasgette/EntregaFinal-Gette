@@ -10,9 +10,8 @@
 
 {% block perfil %}
 <div class='contenedor-buscador'>
-    <h3>Buscador de usuarios</h3>
-    <img class='logo-busqueda' src={% static 'imagenes/usuarios-logo.png'%} alt="">
-  
+    <h3>Buscador de reviews</h3>
+    <img class='logo-busqueda' src={% static 'imagenes/reviews-logo.png'%} alt="">
     
     
     <form class='buscador-form' action="" method='post'>
@@ -33,11 +32,11 @@
             {% if coincidencias %}
             <p>Resultados obtenidos</p>
             <ul class='lista-resultados'>
-            {% for usuario in coincidencias %}
-                {% if usuario.username == request.user.username %}
-                    <li>{{usuario.username}} (Tú) - <a class='perfil-link' href={% url 'perfil' usuario.username%}>Ver perfil</a></li>
+                {% for post in coincidencias %}
+                {% if post.author.username == request.user.username %}
+                    <li>{{post.title}} {{post.calificacion}} - Autor: {{post.author}} (Tú) - {{post.fecha}}- <a class='perfil-link' - href={% url 'other_users_post_detail' post.author post.pk %}> Ver detalles</a></li>
                 {% else %}
-                    <li>{{usuario.username}} - <a class='perfil-link' href={% url 'perfil' usuario.username%}>Ver perfil</a></li>
+                    <li>{{post.title}} {{post.calificacion}}- Autor: {{post.author}} - {{post.fecha}}- <a class='perfil-link' - href={% url 'other_users_post_detail' post.author post.pk %}>Ver detalles</a></li>
                 {% endif %}
                 
             {% endfor %}
@@ -57,6 +56,3 @@
     </div>
 </div>
 {% endblock perfil %}
-
-
-{% comment %} NO SE VE LA IMAGEN. ARREGLAR {% endcomment %}

@@ -17,3 +17,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + str(self.calificacion) + ' | ' + self.author.username
+
+
+class Comentarios(models.Model):
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    fecha = models.DateTimeField(auto_now_add=True)
+    body = models.TextField()
+    post = models.ForeignKey(Post, related_name='comentarios', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.autor.username + ' | ' + str(self.fecha) + ' | ' + self.post.title

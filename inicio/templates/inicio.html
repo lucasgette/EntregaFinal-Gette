@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={% static "css\style.css" %}>
+    <link rel="stylesheet" href={% static "css\nav-style.css" %}>
+    <script src={% static "javascript\script.js" %} defer></script>
     {% block estilos %}
     
     {% endblock estilos %}
@@ -22,8 +24,66 @@
 
 <body>
 
+    {% if user.is_authenticated %}
+    <nav>
+        <div class="cont-izq">
+            <div>
+                <button class="hamburguesa">
+                    <span></span>
+                </button>
+            </div>
+            <a href={% url 'inicio' %}><img class='pagina-logo' src="{% static 'imagenes/logo-1.png' %}" alt=""></a>
+            
 
-<nav class='nav-bar'>
+            <ul class="lista-enlaces">
+                <li><a href={% url 'inicio' %}>Inicio</a></li>
+                <li><a href={% url 'buscar_usuario' %}>Buscar usuarios</a></li>
+                <li><a href={% url 'buscar_reviews' %}>Buscador Reviews</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="cont-usuario">
+            
+            <p>Bienvenido/a, {{request.user.username}}</p>
+            <div><img class='perfil-logo' src='{{request.user.perfilusuario.imagen.url}}' alt=""></div>
+        </div>
+        <div class="control-usuario">
+            <ul>
+                <li><a href={% url 'miperfil' %}>Perfil</a></li>
+                <li>Mis Reviews</li>
+                <li><a href={% url 'logout' %}>Logout</a></li>
+    
+            </ul>
+        </div>
+    </nav>
+    {% else %}
+
+    <nav>
+        <div class="cont-izq">
+            <img class='pagina-logo' src="{% static 'imagenes/logo-1.png' %}" alt="">       
+        </div>
+
+
+
+        <div class="cont-usuario">
+
+        </div>
+        <div class="sesion-nav">
+            
+             <a href={% url 'login' %}>Login</a>
+            <a href={% url 'registrarse' %}>Registrate</a>
+    
+            </ul>
+        </div>
+    </nav>
+
+    
+
+    {% endif %}
+
+{% comment %} <nav class='nav-bar'>
     {% if user.is_authenticated %}
     
     <div class='nav-division'>
@@ -56,11 +116,14 @@
         <span class= 'nav-item' ><a href={% url 'registrarse' %}>Registrate</a><span>
     <div class='nav-division'>
     {% endif %}
-</nav>
+</nav> {% endcomment %}
+
+
 {% block loginmain %}
 {% block logout %}
 {% block perfil %}
 {% block nuevo_post %}
+{% block post %}
 
 
     <div class='contenedor'>
@@ -88,7 +151,8 @@
     {% endif %}
 
     </div>
-
+    
+{% endblock post %}
 {% endblock nuevo_post %}
 {% endblock perfil %}
 {% endblock logout %}

@@ -1,17 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post detail</title>
-</head>
-<body>
+{% extends "inicio.html" %}
 
-   <h2>{{post.title}} - {{post.calificacion}}/10</h2>
-   <p>Author: {{post.author}}</p>
-   <p>{{post.body}}</p>
-   
-                  
-</body>
-</html>
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\postdetails.css" %}>
+{% endblock estilos %}
+
+{% block post %}
+<div class='container'>
+    <div class='main-contenedor'>
+    <h2>{{post.title}}</h2>
+    <p>Calificación otorgada: {{post.calificacion}}/10</p>
+    <p>{{post.fecha}}</p>
+    <p>Author: {{post.author}}</p>
+    <p>{{post.body}}</p>
+    <br><br><hr><br>
+    <div>
+        <h2>Comentarios</h2>
+    
+        {% for comentario in comentarios  %}
+            
+        
+            <p>{{comentario.autor}} - {{comentario.fecha}}</p>
+            <p>{{comentario.body}}</p>
+            <br>
+        {% endfor %}
+
+    </div>
+
+
+
+    </div>
+
+</div>
+{% endblock post %}        

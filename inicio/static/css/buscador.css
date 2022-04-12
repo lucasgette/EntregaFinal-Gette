@@ -16,6 +16,12 @@
     text-align: center;
 }
 
+.logo-busqueda {
+    max-width: 180px;
+    display: block;
+    margin: auto;
+}
+
 /* background-color: rgba(31, 31, 31, 0.95);
 color: #FFF;
 padding: 20px; */
@@ -27,6 +33,7 @@ padding: 20px; */
     align-items: center;
     justify-content: start;
     margin-top: 50px;
+    
 }
 
 
@@ -48,12 +55,12 @@ padding: 20px; */
 
 input {
     max-width: 400px;
+    min-width: 0;
     font-size: 1.1rem;
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
     margin: 15px auto;
-    
     border: none;
     border-radius: 3px;
     transition: all 0.5s;
@@ -75,7 +82,7 @@ input:focus {
 
 .boton {
 
-    margin: 0 10px;
+    margin: 0 5px;
 
 }
 
@@ -95,3 +102,15 @@ input:focus {
     margin: auto;
 }
 
+
+@media(max-width: 525px) {
+
+
+    .boton {
+        padding: 10px 15px;
+        font-size: 0.8em;
+        margin: 0 5px;
+
+    }
+
+}

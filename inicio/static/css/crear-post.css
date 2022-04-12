@@ -1,8 +1,11 @@
+html {
+    height: auto;
+}
 
 .form-contenedor {
     width: 90%;
     margin: 40px auto;
-    margin-bottom: 50px;
+    margin-bottom: 1000px;
     background-color: rgba(31, 31, 31, 0.95);
     color: #FFF;
     padding: 20px;

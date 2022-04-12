@@ -1,0 +1,29 @@
+{% extends "inicio.html" %}
+
+{% block titulo %}
+<title>Editar review</title>
+{% endblock titulo %}
+
+
+{% block estilos %}
+    {% load static %}
+    <link rel="stylesheet" href={% static "css\crear-post.css" %}>
+{% endblock estilos %}
+
+{% block nuevo_post %}
+
+<div class='form-contenedor'>
+    <h3>Editar Review</h3>
+    <p>{{post.title}} - Autor {{post.author}} - {{post.fecha}}</p>
+    <form class='crear-form' action="" method='post'>
+    {% csrf_token %}
+        <table class='tabla-form'>
+            {{form.as_p}}
+        </table>
+        <button class='boton' typer='submit'>Editar post</button>
+    </form>
+</div>
+
+
+
+{% endblock nuevo_post %}

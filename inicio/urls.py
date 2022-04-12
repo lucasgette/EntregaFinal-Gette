@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from inicio.views import inicio, login_usuario, perfil, registrarse,perfil,perfil_update, miperfil, buscador_usuarios
+from inicio.views import inicio, login_usuario, perfil, registrarse,perfil,perfil_update, miperfil, buscador_usuarios, buscador_reviews
+
 from django.contrib.auth.views import LogoutView
 
 
@@ -18,7 +19,10 @@ urlpatterns = [
     path('perfil/<str:usuario>/',perfil, name='perfil'),
     path('miperfil/',miperfil, name='miperfil'),
     path('perfil/editar',perfil_update, name='editar_perfil'),
-    path('buscar-usuarios/',buscador_usuarios, name='buscar_usuario')
+    path('buscar-usuarios/',buscador_usuarios, name='buscar_usuario'),
+    path('buscar-reviews/',buscador_reviews, name='buscar_reviews'),
+
+    
     
     
 

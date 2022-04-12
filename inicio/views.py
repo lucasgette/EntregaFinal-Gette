@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
-from inicio.forms import CrearUsuario, UserUpdateForm, ProfileUpdateForm, BuscarUsuario
+from inicio.forms import CrearUsuario, UserUpdateForm, ProfileUpdateForm, BuscarUsuario, BuscarReviews
 from django.contrib.auth.models import User
 from django.contrib import messages
 from reviews.models import Post
@@ -213,3 +213,46 @@ def buscador_usuarios(request):
         }
 
         return render(request, 'buscar_usuario.html', contexto)
+
+
+
+
+# Buscador de reviews
+
+def buscador_reviews(request):
+    buscador_form = BuscarReviews()
+    if request.method == 'POST':
+        buscador_form = BuscarReviews(request.POST)
+
+        if buscador_form.is_valid():
+            data = buscador_form.cleaned_data
+            titulo_buscado = data['review']
+            coincidencias = Post.objects.filter(title__icontains=titulo_buscado)
+            busqueda = True
+
+            contexto = {
+                'busqueda':busqueda,
+                'usuario_buscado':titulo_buscado,
+                'coincidencias':coincidencias,
+                'busqueda':busqueda,
+                'buscador_form':buscador_form,
+
+            }
+            return render(request,'buscar_reviews.html',contexto)
+        else:
+            return render(request, 'buscar_reviews.html', {} )
+
+        
+    else:
+        buscador_form = BuscarReviews()
+        coincidencias = []
+        busqueda = False
+        contexto = {
+            'buscador_form':buscador_form,
+            'coincidencias':coincidencias,
+            'busqueda':busqueda
+        }
+
+        return render(request, 'buscar_reviews.html', contexto)
+
+

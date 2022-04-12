@@ -65,9 +65,13 @@
             {% for post in posts %}
 
                 <p class='post-item'>
-                <span class='post-titulo'>{{post.title}} </span>
-                <span class='post-calificacion'>- Calificación: {{post.calificacion}}/10 - {{post.fecha}}</span>  
-                <a class='post-detalles' href={% url 'other_users_post_detail' author=post.author pk=post.pk %}>Ver detalles</a></p>
+                    <span class='post-titulo'>{{post.title}} </span> -
+                    <span class='post-calificacion'>Calificación: {{post.calificacion}}/10 - {{post.fecha}}</span> -  
+                    <a class='post-detalles' href={% url 'other_users_post_detail' author=post.author pk=post.pk %}>Ver detalles</a> - 
+                    <a class='post-detalles' href={% url 'editar_review' author=post.author pk=post.pk %}>Editar</a> - 
+                    <a class='post-detalles' href={% url 'borrar_review' author=post.author pk=post.pk %}>Borrar</a>  
+                    {% comment %} <a class='post-detalles' href={% url 'editar_post' author=post.author pk=post.pk %}>Editar</a> -  {% endcomment %}
+                </p>
 
             {% endfor %}
         
